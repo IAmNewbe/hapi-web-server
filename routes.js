@@ -30,6 +30,14 @@ const routes = [
         }
     },
     {
+        method: 'GET',
+        path: '/hello/{name?}', //Path parameter
+        handler: (request, h) => {
+            const { name = "stranger" } = request.params;
+            return `Hello, ${name}!`;
+        },
+    },
+    {
         method: '*',
         path: '/{any*}', //menangani permintaan masuk pada path yang belum Anda tentukan
         handler: (request, h) => {
